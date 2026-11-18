@@ -3,3 +3,5 @@ ddgs>=9.0
 streamlit>=1.40
 python-dotenv>=1.0
 ipykernel>=6.29
+psycopg2-binary>=2.9
+bcrypt>=4.0

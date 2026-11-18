@@ -1,0 +1,14 @@
+.crewai/last_run.json
+.dockerignore
+.env
+.gitignore
+.vscode/settings.json
+README.md
+__pycache__/agents.cpython-312.pyc
+__pycache__/app.cpython-312.pyc
+__pycache__/db.cpython-312.pyc
+__pycache__/list_models.cpython-312.pyc
+__pycache__/tools.cpython-312.pyc
+app.py
+db.py
+requirements.txt
