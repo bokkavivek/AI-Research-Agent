@@ -1,5 +1,6 @@
 """Pipeline: research -> analysis (with retry) -> writer. Searches run in parallel."""
 import os
+import re
 import sys
 import warnings
 from datetime import datetime
@@ -43,6 +44,11 @@ def _queries(topic: str, year: str, round_no: int) -> list[str]:
     if round_no > 1:
         queries.append(f"{topic} official announcement {year}")
     return queries
+
+def _passed(review: str) -> bool:
+    """Accept STATUS: PASS in any reasonable format, e.g. **STATUS: PASS** or 'Status - pass'."""
+    m = re.search(r"STATUS\W{0,3}(PASS|FAIL)", review, re.IGNORECASE)
+    return bool(m) and m.group(1).upper() == "PASS"
 
 
 def make_agents(llm: LLM, verbose: bool = False):
